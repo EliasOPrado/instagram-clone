@@ -1,27 +1,18 @@
+import React, { useEffect, useState } from "react";
 import logo from './logo.svg';
 import './App.css';
 import Post from './Post';
-import React, { useEffect, useState } from "react";
 import { db } from './firebase';
+
+
 function App() {
 
-  const [posts, setPosts] = React.useState([
-    {
-      username:"Elias",
-      caption:"Criando instagram usando react",
-      imageUrl:"https://cdn.auth0.com/blog/illustrations/reactjs.png"
-    },
-    {
-      username:"Elias",
-      caption:"Criando instagram usando react",
-      imageUrl:"https://cdn.auth0.com/blog/illustrations/reactjs.png"
-    }
-  ]);
+  const [posts, setPosts] = React.useState([]);
 // useEffect -> Runs a piece of code based on a specific condition
 useEffect(() => {
   db.collection('posts').onSnapshot(snapshot => {
     // every time a change is done on db it will make a snapshot from the db
-    setPosts(snapshot.docs.map(doc => doc.data()))
+    setPosts(snapshot.docs.map(doc => doc.data()));
   })
 }, []);
 
