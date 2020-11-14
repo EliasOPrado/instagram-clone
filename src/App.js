@@ -8,6 +8,7 @@ import Modal from '@material-ui/core/Modal';
 import { Button, Input } from '@material-ui/core';
 import ImageUpload from './ImageUpload';
 
+
 function getModalStyle() {
   const top = 50;
   const left = 50;
@@ -96,13 +97,6 @@ const signIn = (event) => {
 }
   return (
     <div className="App">
-      {user?.displayName ? (
-         <ImageUpload username={user.displayName}/>
-      ): (
-        <h3>You need to login to upload!</h3>
-      )}
-   
-
       <Modal
         open={open}
         onClose={() => setOpen(false)}
@@ -173,9 +167,8 @@ const signIn = (event) => {
 
       <div className="app__header">
         <img 
-        className="app__headerImage" src="https://www.instagram.com/static/images/web/mobile_nav_type_logo-2x.png/1b47f9d0e595.png" alt=""/>
-      </div>
-
+        className="app__headerImage" 
+        src="https://www.instagram.com/static/images/web/mobile_nav_type_logo-2x.png/1b47f9d0e595.png" alt=""/>
       {user ?(
       <Button onClick={() => auth.signOut()}>Logout</Button>
       )
@@ -185,12 +178,22 @@ const signIn = (event) => {
           <Button onClick={() => setOpen(true)}>Sign Up</Button>
         </div>
       )}
+      </div>
+
+      
       
       {
         posts.map(({id, post}) => (
           <Post key={id} username={post.username} caption={post.caption} imageUrl={post.imageUrl} />
           ))
       } 
+
+     {user?.displayName ? (
+         <ImageUpload username={user.displayName}/>
+      ): (
+        <h3>You need to login to upload!</h3>
+      )}
+      
     </div>
   );
 }
