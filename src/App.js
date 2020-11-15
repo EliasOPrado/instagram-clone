@@ -187,7 +187,7 @@ const signIn = (event) => {
         <div className="app__postsLeft">
           {
           posts.map(({id, post}) => (
-            <Post key={id} postId={id} username={post.username} caption={post.caption} imageUrl={post.imageUrl} />
+            <Post key={id} postId={id} user={user} username={post.username} caption={post.caption} imageUrl={post.imageUrl} />
             ))
           } 
         </div>
@@ -211,7 +211,9 @@ const signIn = (event) => {
      {user?.displayName ? (
          <ImageUpload username={user.displayName}/>
       ): (
-        <h3>You need to login to upload!</h3>
+        <div className="login__message">
+          <h3>You need to login to upload!</h3>
+        </div>
       )}
       
     </div>

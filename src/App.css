@@ -7,22 +7,30 @@
 }
 
 .app__headerImage {
-  background-color: white;
-  padding: 20px;
   object-fit: contain;
   width: 100px;
 }
 
 .app__header{
+  background-color: white;
+  position: sticky;
+  top: 0;
+  z-index: 10;
   border-bottom: 1px solid lightgray;
   display: flex;
   justify-content: space-between;
+  height: 54px;
+  padding: 0 20px;
 }
 
 .app__signup{
   display: flex;
   text-align: center;
   flex-direction: column;
+}
+
+.app__loginContainer {
+  padding: 10px;
 }
 
 .app__posts{
@@ -33,4 +41,10 @@
 
 .app__postsRight{
   margin-left: 20px;
+}
+
+.login__message {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
 }
